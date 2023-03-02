@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22D68" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="JobE" representedClassName="JobE" syncable="YES">
+        <attribute name="desc" optional="YES" attributeType="String"/>
+        <attribute name="icon" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="imageName" optional="YES" attributeType="String"/>
+        <attribute name="isChosen" optional="YES" attributeType="Boolean" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isFound" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="toTask" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TaskE" inverseName="toJob" inverseEntity="TaskE"/>
+    </entity>
+    <entity name="NoteE" representedClassName="NoteE" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="desc" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="noteForTask" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TaskE" inverseName="taskForNote" inverseEntity="TaskE"/>
+    </entity>
+    <entity name="TaskE" representedClassName="TaskE" syncable="YES">
+        <attribute name="desc" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isTaken" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="taskForNote" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NoteE" inverseName="noteForTask" inverseEntity="NoteE"/>
+        <relationship name="toJob" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="JobE" inverseName="toTask" inverseEntity="JobE"/>
+    </entity>
+</model>

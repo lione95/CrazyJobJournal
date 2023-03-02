@@ -1,0 +1,58 @@
+/* 
+  Localizable.strings
+  CrazyJobJournal
+
+  Created by Nanashi Kai Ni on 28/02/23.
+  
+*/
+"Home" = "Menu Iniziale";
+"Resume" = "Riprendi";
+"TextForReflect" = "Inserisci qui la tua riflessione...";
+"SelfReflection" = "Riflessioni";
+"Done" = "Fatto";
+"Add" = "Task Completato";
+"FirstButton" = "Iniziamo!";
+"PastJ" = "Guardarsi indietro";
+"Shake" = "Scuotilo";
+"Next" = "Avanti";
+"DefDesc" = "Forse è necessario scuoterlo prima...";
+"JobD" = "Disoccupato";
+"Job1" = "Ingegnere civile";
+"Desc1" = "Magari ti è sempre piaciuto costruire con i Lego e fare castelli di sabbia, vorresti rendere questa passione un lavoro, allora potresti essere interessato nel capire di cosa si occupa un ingegnere civile. Cura la progettazione, costruzione, manutenzione di strutture e infrastrutture fondamentali, quali edifici, ponti, gallerie e molto altro.";
+"Job2" = "Informatico";
+"Desc2" = "Fin da piccolo hai sempre avuto una passione per il PC e nel corso degli anni ti sei interessato sempre di più al come funzionano, potresti essere un informatico. Si occupa di tutto ciò che compere l’installazione, la configurazione, l’aggiornamento e la manutenzione delle apparecchiature informatiche.";
+"Job3" = "Linguista";
+"Desc3" = "Hai sempre avuto una passione per le lingue, magari da piccolo ti sei subito interessato all’inglese o ad un’altra lingua, anche per capire meglio un’altra cultura, allora potresti essere un linguista. Egli è un esperto del linguaggio, in grado di analizzare ed approfondire l’origine, l’evoluzione e la struttura delle lingue, si occupano sia di lingue antiche che moderne, nella parte scritta e parlata del linguaggio. Sono interessati non sono al processo linguistico, ma anche a quelli sociali.";
+"Job4" = "Graphic designer";
+"Desc4" = "Fin da piccolo hai avuto una passione per il disegno, ti è sempre interessato tenerti aggiornato sull’evoluzione del linguaggio visivo, potresti essere un graphic designer. Si occupa di realizzare disegni, bozzetti, lavori di animazione ed elaborati multimediali per l’ambito artistico, pubblicitario e comunicativo. Utilizza tecniche e strumenti differente, a seconda del proprio progetto.";
+"Job5" = "Addetto allo sviluppo commerciale";
+"Desc5" = "Sei una persona dinamica alla quale piace gestire il rapporto con gli altri e tenere in ordine tutto ciò che riguarda l’ambito amministrativo, allora potrebbe interessarti ciò che fa l’addetto allo sviluppo commerciale. Si occupa di mansioni amministrative, come gestire gli ordini, preventiva ed elabora offerte commerciali, prepara la reportistica commerciale, della corrispondenza e della gestione dei rapporti con clienti e fornitori.";
+"Task1" = "Prendi un righello (o uno strumento simile) per controllare che le dimensioni del tuo banco siano le stesse di quelle degli altri banchi.";
+"TaskDes1" = "";
+"Task2" = "Prendi una bottiglia d’acqua e crea dei piccoli fori sul tappo per capire come l’acqua fluisce in base alla grandezza del foro che hai creato";
+"TaskDes2" = "";
+"Task3" = "Prendi della farina e dell’acqua e mischiali per ottenere un composto omogeneo, che possa essere quanto più usabile come “colla”";
+"TaskDes3" = "";
+"Task4" = "Se hai un pc fisso smonta il pannello laterale ed aprilo per capire come sono assemblate le parti interne di un pc";
+"TaskDes4" = "";
+"Task5" = "Informati su una nuova tecnologia nell’ambito informatico e scrivi un breve riassunto su ciò che hai scoperto";
+"TaskDes5" = "";
+"Task6" = "Assicurati che tutti i programmi e le applicazioni sul tuo telefono e pc siano aggiornati, in caso contrario aggiornali";
+"TaskDes6" = "";
+"Task7" = "Apri un video su YouTube in una delle lingue non madre che stai studiando e cerca di trascrivere il testo il meglio che puoi.";
+"TaskDes7" = "";
+"Task8" = "Cerca di tradurre nella tua lingua una pagina di un libro di testo in una lingua diversa dalla tua lingua madre, possibilmente usando termini tecnici laddove possibile.";
+"TaskDes8" = "";
+"Task9" = "Informati su una cultura diversa dalla tua e scrivi un piccolo testo che riassuma ciò che hai scoperto.";
+"TaskDes9" = "";
+"Task10" = "Ispirati ad un animale che ti piace e basandoti su di esso crea loghi differenti, come se volessi creare degli sticker";
+"TaskDes10" = "";
+"Task11" = "Ricrea un disegno che ti piace al meglio delle tue possibilità per esplorare al meglio il tuo talento";
+"TaskDes11" = "";
+"Task12" = "Informati sulle nuove tecnologie nell’ambito del graphic design, dopo averlo fatto cerca di usarne una per creare un disegno";
+"TaskDes12" = "";
+"Task13" = "Creati un programma giornaliero per meglio gestire le tue ore di studio";
+"TaskDes13" = "";
+"Task14" = "Informati sull’uso di applicazioni e programmi come excel che aiutano nella gestione di tempi e nella gestione delle attività";
+"TaskDes14" = "";
+"Task15" = "Crea una lista contatti con le persone che conosci, in modo tale che un’eventuale terza parte possa entrare in contatto con loro senza problemi";
