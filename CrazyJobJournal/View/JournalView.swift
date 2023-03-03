@@ -10,7 +10,7 @@ import SwiftUI
 struct JournalView: View {
     
     @Binding var path : NavigationPath
-    @Binding var task : TaskE
+    @State var task : TaskE
     
     var body: some View {
         NavigationStack(path: $path){

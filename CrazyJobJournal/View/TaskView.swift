@@ -32,7 +32,7 @@ struct TaskView: View {
                 }.frame(maxWidth: 300, maxHeight: 300, alignment: .topLeading)
             }.padding()
             NavigationLink {
-                NoteView(tasksForJob: $tasksForJob, job: $job)
+                NoteView(path: $path, tasksForJob: $tasksForJob, job: $job)
             } label: {
                 ZStack{
                     RoundedRectangle(cornerRadius: 15).frame(width: 275,height: 64).foregroundColor(.cyan)

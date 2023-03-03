@@ -23,7 +23,7 @@ struct HistoryView: View {
             List{
                 ForEach($listOfTask){ $task in
                     NavigationLink {
-                        JournalView(path: $path, task: $task)
+                        JournalView(path: $path, task: task)
                     } label: {
                         ZStack{
                             RoundedRectangle(cornerRadius: 20).frame(width: 65, height: 65).foregroundColor(Color.clear)
