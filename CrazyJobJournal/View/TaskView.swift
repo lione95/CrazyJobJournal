@@ -16,19 +16,20 @@ struct TaskView: View {
     
     var body: some View {
         NavigationStack() {
-            VStack(alignment: .leading){
-                Text(LocalizedStringKey(job.title!)).bold().font(.system(size:24))
+            VStack{
+                Text(LocalizedStringKey(job.title!)).bold().font(.system(size:24)).multilineTextAlignment(.leading)
                 Divider()
                 HStack{
-                    Text(LocalizedStringKey(job.desc!)).font(.system(size:16))
-                }.frame(maxWidth: 400, maxHeight: 400, alignment: .topLeading)
-            }.padding(.horizontal)
-            VStack(alignment: .leading){
+                    Text(LocalizedStringKey(job.desc!)).font(.system(size:16)).multilineTextAlignment(.leading)
+                }.padding()
+            }
+            Divider()
+            VStack{
                 Text("Task").bold().font(.system(size:24))
                 HStack{
                     Text(LocalizedStringKey(tasksForJob.title!)).padding().overlay(RoundedRectangle(cornerRadius: 20)
-                    .stroke(Color("AccentColor"),lineWidth: 2)).font(.system(size:16))
-                }.frame(maxWidth: 400, maxHeight: 400, alignment: .topLeading)
+                    .stroke(Color("AccentColor"),lineWidth: 2)).font(.system(size:16)).multilineTextAlignment(.leading)
+                }
             }.padding()
             HStack{
                 VStack{

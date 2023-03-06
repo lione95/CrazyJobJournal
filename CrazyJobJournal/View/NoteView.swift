@@ -19,24 +19,27 @@ struct NoteView: View {
     
     var body: some View {
         NavigationStack(path: $path){
-            VStack(alignment: .leading){
+            VStack{
                 VStack(spacing: 15){
                     HStack{
                         Spacer()
                         Text(LocalizedStringKey("SelfReflection")).font(.system(size:24)).foregroundColor(.accentColor)
                         Spacer()
                     }
-                    Text(LocalizedStringKey("Rifletti")).font(.system(size:16)).foregroundColor(.accentColor).fixedSize(horizontal: true, vertical: false)
+                    HStack{
+                        Text(LocalizedStringKey("Rifletti")).font(.system(size:16)).foregroundColor(.accentColor).multilineTextAlignment(.leading)
+                    }
                 }
                 VStack{
                     ZStack{
                         RoundedRectangle(cornerRadius: 20).frame(width: 346, height: 500)
                         TextEditor(text: self.$Desc).textSelection(.enabled).frame(width: 346, height: 500).scrollContentBackground(.hidden).background(Color("ColorNote")).cornerRadius(20)
                     }
-                }.padding()
+                }
             }.onTapGesture {
                 self.hideKeyboard()
-            }.padding()
+            }
+            Spacer()
             NavigationLink(destination: MainView().navigationBarBackButtonHidden(true), isActive: $save) {
                 HStack{
                     Button(action: {save.toggle()}) {

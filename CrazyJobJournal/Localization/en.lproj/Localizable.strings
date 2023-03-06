@@ -1,10 +1,5 @@
-/* 
-  Localizable.strings
-  CrazyJobJournal
+/*   Localizable.strings  CrazyJobJournal   Created by Nanashi Kai Ni on 28/02/23.   */
 
-  Created by Nanashi Kai Ni on 28/02/23.
-  
-*/
 "Rifletti" = "What did you think about this task and how did it make you feel?";
 "Home" = "HOME";
 "Resume" = "RESUME";
@@ -19,85 +14,43 @@
 "DefDesc" = "Maybe you need to shake it first...";
 "JobD" = "Unemployed";
 "Job1" = "Civil Engineer";
-"Desc1" = "Maybe you have always liked building with Lego, there
-is a job that allows you to make this a reality, the civil
-engineer. He oversees the design, construction and maintenance of
-key structures and infrastructure, such as buildings, bridges,
-tunnels and more.";
+"Desc1" = "Maybe you have always liked building with Lego, there is a job that allows you to make this a reality, the civil engineer. He oversees the design, construction and maintenance of key structures and infrastructure, such as buildings, bridges, tunnels and more.";
 "Job2" = "Computer sciencist";
-"Desc2" = "Ever since childhood you have had a passion for the PC,
-the computer engineer makes this passion a reality at work. He
-takes care of everything to do with the installation,
-configuration, updating and maintenance of computer equipment.";
+"Desc2" = "Ever since childhood you have had a passion for the PC, the computer engineer makes this passion a reality at work. He takes care of everything to do with the installation, configuration, updating and maintenance of computer equipment.";
 "Job3" = "Linguist";
-"Desc3"  = "You have always had a passion for languages, even to
-better understand another culture, then you could be a linguist.
-They’re an expert in language, able to analyse and investigate the
-origin, evolution and structure of languages, dealing with both
-ancient and modern languages, in the written and spoken part of
-language. They are interested not only in the linguistic process,
-but also in the social process.";
+"Desc3" = "You have always had a passion for languages, even to better understand another culture, then you could be a linguist. They’re an expert in language, able to analyse and investigate the origin, evolution and structure of languages, dealing with both ancient and modern languages, in the written and spoken part of language. They are interested not only in the linguistic process, but also in the social process.";
 "Job4" = "Graphic designer";
-"Desc4" = "Since childhood you have had a passion for drawing,
-then you may be interested to know that the graphic designer turns
-this passion into a job. He is responsible for creating drawings,
-sketches, animation and multimedia works for the artistic,
-advertising and communication fields. He uses different techniques
-and tools, depending on his project.";
+"Desc4" = "Since childhood you have had a passion for drawing, then you may be interested to know that the graphic designer turns this passion into a job. He is responsible for creating drawings, sketches, animation and multimedia works for the artistic, advertising and communication fields. He uses different techniques and tools, depending on his project.";
 "Job5" = "Business development officer";
-"Desc5" = "They’re a dynamic person who likes to manage
-relationships with others and keeps everything in order. They’re
-in charge of administrative tasks, such as managing orders,
-estimates and prepares commercial offers, prepares commercial
-reports, correspondence and managing relationships with customers
-and suppliers.";
-"Task1" = "Take a ruler (or a similar tool) to check that the
-dimensions of your school desk are the same as those of the other
-desks.";
+"Desc5" = "They’re a dynamic person who likes to manage relationships with others and keeps everything in order. They’re in charge of administrative tasks, such as managing orders, estimates and prepares commercial offers, prepares commercial reports, correspondence and managing relationships with customers and suppliers.";
+"Task1" = "Take a ruler (or a similar tool) to check that the dimensions of your school desk are the same as those of the other desks.";
 "TaskDes1" = "";
-"Task2" = "Take a bottle of water and make small holes in the cap
-to see how the water flows according to the size of the hole you
-have created";
+"Task2" = "Take a bottle of water and make small holes in the cap to see how the water flows according to the size of the hole you have created";
 "TaskDes2" = "";
-"Task3" = "Take some flour and water and mix them to make a
-homogeneous mixture that can be used as much as possible as
-'glue'";
+"Task3" = "Take some flour and water and mix them to make a homogeneous mixture that can be used as much as possible as 'glue'";
 "TaskDes3" = "";
-"Task4" = "If you have a desktop PC, take apart the side panel and
-open it to understand how the internal parts of a PC are
-assembled";
+"Task4" = "If you have a desktop PC, take apart the side panel and open it to understand how the internal parts of a PC are assembled";
 "TaskDes4" = "";
-"Task5" = "Learn about a new technology in computing and write a
-short summary of what you have discovered";
+"Task5" = "Learn about a new technology in computing and write a short summary of what you have discovered";
 "TaskDes5" = "";
-"Task6" = "Make sure all programmes and applications on your phone
-and PC are up to date, if not, update them";
+"Task6" = "Make sure all programmes and applications on your phone and PC are up to date, if not, update them";
 "TaskDes6" = "";
-"Task7" = "Open a YouTube video in one of the non-native languages
-you are studying and try to transcribe the text as best you can.";
+"Task7" = "Open a YouTube video in one of the non-native languages you are studying and try to transcribe the text as best you can.";
 "TaskDes7" = "";
-"Task8" = "Try to translate a page of a textbook in a language
-other than your mother tongue into your own language, possibly
-using technical terms wherever possible.";
+"Task8" = "Try to translate a page of a textbook in a language other than your mother tongue into your own language, possibly using technical terms wherever possible.";
 "TaskDes8" = "";
-"Task9" = "Find out about a culture other than your own and write
-a small text summarising what you have discovered.";
+"Task9" = "Find out about a culture other than your own and write a small text summarising what you have discovered.";
 "TaskDes9" = "";
-"Task10" = "Inspired by an animal you like and based on it create
-different logos, like you would create stickers";
+"Task10" = "Inspired by an animal you like and based on it create different logos, like you would create stickers";
 "TaskDes10" = "";
-"Task11" = "Recreate a design you like to the best of your ability
-to explore your talent";
+"Task11" = "Recreate a design you like to the best of your ability to explore your talent";
 "TaskDes11" = "";
-"Task12" = "Learn about new technologies in the field of graphic
-design, after doing so try to use one to create a design";
+"Task12" = "Learn about new technologies in the field of graphic design, after doing so try to use one to create a design";
 "TaskDes12" = "";
-"Task13" = "Create a daily schedule to better manage your study
-hours";
+"Task13" = "Create a daily schedule to better manage your study hours";
 "TaskDes13" = "";
-"Task14" = "Find out about the use of applications and programmes
-such as excel that help with time and task management";
+"Task14" = "Find out about the use of applications and programmes such as excel that help with time and task management";
 "TaskDes14" = "";
-"Task15" = "Create a contact list with people you know, so that a
-possible third party can get in touch with them without problems";
+"Task15" = "Create a contact list with people you know, so that a possible third party can get in touch with them without problems";
 "TaskDes15" = "";
+ 
