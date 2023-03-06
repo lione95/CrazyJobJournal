@@ -15,33 +15,46 @@ struct NoteView: View {
     @Binding var job: JobE
     @State var Desc: String = ""
     @State var note: NoteE = NoteE()
+    @State var save: Bool = false
     
     var body: some View {
         NavigationStack(path: $path){
-            Text(LocalizedStringKey("SelfReflection")).padding(.top)
-            Form{
-                Section{
-                    ZStack{
-                        TextEditor(text: self.$Desc).textSelection(.enabled).frame(height: 400)
-                    }
-                }.onTapGesture {
-                    self.hideKeyboard()
-                }
-                NavigationLink {
-                    MainView().navigationBarBackButtonHidden(true)
-                } label: {
+            VStack(alignment: .leading){
+                VStack(spacing: 15){
                     HStack{
                         Spacer()
-                        Text(LocalizedStringKey("Done"))
+                        Text(LocalizedStringKey("SelfReflection")).font(.system(size:24)).foregroundColor(.accentColor)
                         Spacer()
                     }
-                }.onDisappear(){
+                    Text(LocalizedStringKey("Rifletti")).font(.system(size:16)).foregroundColor(.accentColor).fixedSize(horizontal: true, vertical: false)
+                }
+                VStack{
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 20).frame(width: 346, height: 500)
+                        TextEditor(text: self.$Desc).textSelection(.enabled).frame(width: 346, height: 500).scrollContentBackground(.hidden).background(Color("ColorNote")).cornerRadius(20)
+                    }
+                }.padding()
+            }.onTapGesture {
+                self.hideKeyboard()
+            }.padding()
+            NavigationLink(destination: MainView().navigationBarBackButtonHidden(true), isActive: $save) {
+                HStack{
+                    Button(action: {save.toggle()}) {
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 20).frame(width: 185, height: 65).foregroundColor(.accentColor)
+                            Text(LocalizedStringKey("Done")).foregroundColor(.white)
+                        }
+                    }
+                }
+            }.onDisappear(){
+                if(save && !(self.Desc.isEmpty)){
                     note = DataController().addNote(desc: Desc, task: tasksForJob, context: managedObjContext)
                     DataController().addNoteToTask(note: note, task: tasksForJob, context: managedObjContext)
                     DataController().editTask(task: tasksForJob, isTaken: false, context: managedObjContext)
                     DataController().editTask(task: tasksForJob, isDone: true, context: managedObjContext)
                     DataController().editJob(job: job, isFound: false, context: managedObjContext)
                 }
+
             }
         }
     }

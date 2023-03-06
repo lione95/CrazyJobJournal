@@ -14,7 +14,7 @@ struct JournalView: View {
     
     var body: some View {
         NavigationStack(path: $path){
-            Text(task.taskForNote!.desc!)
+            Text(task.taskForNote!.desc!).foregroundColor(.accentColor)
         }
     }
 }

@@ -27,7 +27,7 @@ struct HistoryView: View {
                     } label: {
                         ZStack{
                             RoundedRectangle(cornerRadius: 20).frame(width: 65, height: 65).foregroundColor(Color.clear)
-                            Text(LocalizedStringKey($task.title.wrappedValue!)).font(.title3).fontWeight(.semibold)
+                            Text(LocalizedStringKey($task.title.wrappedValue!)).foregroundColor(.accentColor)
                         }
                     }
                 }

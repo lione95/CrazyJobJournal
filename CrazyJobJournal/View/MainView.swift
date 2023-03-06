@@ -16,29 +16,63 @@ struct MainView: View {
     @State var path : NavigationPath = NavigationPath()
     @FetchRequest(sortDescriptors: [SortDescriptor(\.id,order:.reverse)]) var jobs : FetchedResults<JobE>
     @FetchRequest(sortDescriptors: [SortDescriptor(\.id,order:.reverse)]) var tasks : FetchedResults<TaskE>
+    var save: Bool {
+        for i in 0..<jobs.count{
+            if(jobs[i].isChosen){
+               return true
+            }
+        }
+        return false
+    }
+    
     
     var body: some View {
         NavigationStack(path: $path){
             VStack(spacing:50){
+                Spacer()
                 Image("base").frame(width: 275,height: 360)
-                NavigationLink {
-                   if(!(thereIsJobAndTask(job: jobs, task: tasks))){
-                        ShakeView(path: $path)
+                Spacer()
+                VStack(spacing: 35){
+                    NavigationLink {
+                        if(!(thereIsJobAndTask(job: jobs, task: tasks))){
+                            ShakeView(path: $path)
+                        }else{
+                            TaskView(path: $path, job: jobActive, tasksForJob: taskActive)
+                        }
+                    } label: {
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 20).frame(width: 185,height: 65).foregroundColor(.accentColor)
+                            HStack{
+                                Text(thereIsJobAndTask(job: jobs, task: tasks) ? LocalizedStringKey("Resume") : LocalizedStringKey("FirstButton") ).font(.system(size: 18)).foregroundColor(.white)
+                                Image(systemName: "play.fill")
+                                    .foregroundColor(.white)
+                            }
+                        }
+                    }
+                    if(save){
+                        NavigationLink(destination: JobView(path: $path)) {
+                            HStack{
+                                ZStack{
+                                    RoundedRectangle(cornerRadius: 20).frame(width: 185,height: 65).foregroundColor(Color.white)
+                                    HStack{
+                                        Text(LocalizedStringKey("PastJ")).font(.system(size: 18)).foregroundColor( .accentColor)
+                                        Image(systemName: "bookmark.fill").foregroundColor( .accentColor)
+                                    }
+                                }.overlay(RoundedRectangle(cornerRadius: 20)
+                                    .stroke(Color("AccentColor"),lineWidth: 1.0))
+                            }
+                        }.padding(.bottom)
                     }else{
-                        TaskView(path: $path, job: jobActive, tasksForJob: taskActive)
-                    }
-                } label: {
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 15).frame(width: 275,height: 64).foregroundColor(.cyan)
-                        Text(thereIsJobAndTask(job: jobs, task: tasks) ? LocalizedStringKey("Resume") : LocalizedStringKey("FirstButton") ).font(.title).foregroundColor(.white)
-                    }
-                }
-                NavigationLink {
-                    JobView(path: $path)
-                } label: {
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 15).frame(width: 275,height: 64).foregroundColor(.cyan)
-                        Text(LocalizedStringKey("PastJ")).font(.title).foregroundColor(.white)
+                        HStack{
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 20).frame(width: 185,height: 65).foregroundColor( Color.gray).opacity(0.3)
+                                HStack{
+                                    Text(LocalizedStringKey("PastJ")).font(.system(size: 18)).foregroundColor(.white)
+                                    Image(systemName: "bookmark.fill").foregroundColor(.white)
+                                }
+                            }.overlay(RoundedRectangle(cornerRadius: 20)
+                                .stroke(Color("ColorStroke"),lineWidth: 1.0))
+                        }.padding(.bottom)
                     }
                 }
             }

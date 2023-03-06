@@ -23,7 +23,7 @@ struct JobView: View {
                     } label: {
                         HStack{
                             ZStack{
-                                RoundedRectangle(cornerRadius: 20).frame(width: 65, height: 65).foregroundColor(Color.clear)
+                                RoundedRectangle(cornerRadius: 20).frame(width: 65, height: 65).foregroundColor(.accentColor)
                                 Image($job.icon.wrappedValue!)
                             }
                             Text(LocalizedStringKey($job.title.wrappedValue!))

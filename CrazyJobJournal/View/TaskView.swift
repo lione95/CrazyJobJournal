@@ -13,41 +13,44 @@ struct TaskView: View {
     @Binding var path: NavigationPath
     @State var job: JobE
     @State var tasksForJob: TaskE
-    @State var isSaved = false
     
     var body: some View {
         NavigationStack() {
             VStack(alignment: .leading){
-                Text("Info").bold().font(.system(size:24))
+                Text(LocalizedStringKey(job.title!)).bold().font(.system(size:24))
+                Divider()
                 HStack{
-                    Text(LocalizedStringKey(job.desc!)).padding().overlay(RoundedRectangle(cornerRadius: 20)
-                        .stroke(.blue,lineWidth: 0.4)).font(.system(size:16))
-                }.frame(maxWidth: 300, maxHeight: 300, alignment: .topLeading)
-            }.padding()
+                    Text(LocalizedStringKey(job.desc!)).font(.system(size:16))
+                }.frame(maxWidth: 400, maxHeight: 400, alignment: .topLeading)
+            }.padding(.horizontal)
             VStack(alignment: .leading){
-                Text("Info").bold().font(.system(size:24))
+                Text("Task").bold().font(.system(size:24))
                 HStack{
                     Text(LocalizedStringKey(tasksForJob.title!)).padding().overlay(RoundedRectangle(cornerRadius: 20)
-                        .stroke(.blue,lineWidth: 0.4)).font(.system(size:16))
-                }.frame(maxWidth: 300, maxHeight: 300, alignment: .topLeading)
+                    .stroke(Color("AccentColor"),lineWidth: 2)).font(.system(size:16))
+                }.frame(maxWidth: 400, maxHeight: 400, alignment: .topLeading)
             }.padding()
-            NavigationLink {
-                NoteView(path: $path, tasksForJob: $tasksForJob, job: $job)
-            } label: {
-                ZStack{
-                    RoundedRectangle(cornerRadius: 15).frame(width: 275,height: 64).foregroundColor(.cyan)
-                    Text(LocalizedStringKey("Add")).font(.title).foregroundColor(.white)
+            HStack{
+                VStack{
+                    NavigationLink {
+                        NoteView(path: $path, tasksForJob: $tasksForJob, job: $job)
+                    } label: {
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 20).frame(width: 185,height: 65).foregroundColor(.accentColor)
+                            Text(LocalizedStringKey("Add")).font(.system(size: 16)).foregroundColor(.white)
+                        }
+                    }
+                    NavigationLink {
+                        MainView().navigationBarBackButtonHidden(true)
+                    } label: {
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 20).frame(width: 185,height: 65).foregroundColor(.accentColor)
+                            Text(LocalizedStringKey("Home")).font(.system(size: 16)).foregroundColor(.white)
+                        }
+                    }
                 }
-            }
-            NavigationLink {
-                MainView().navigationBarBackButtonHidden(true)
-            } label: {
-                ZStack{
-                    RoundedRectangle(cornerRadius: 15).frame(width: 275,height: 64).foregroundColor(.cyan)
-                    Text(LocalizedStringKey("Home")).font(.title).foregroundColor(.white)
-                }
-            }
-
-        }.navigationTitle(Text(LocalizedStringKey(job.title!)))
+                Image("base").resizable()
+            }.padding()
+        }
     }
 }

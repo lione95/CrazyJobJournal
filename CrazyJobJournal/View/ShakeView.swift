@@ -24,8 +24,24 @@ struct ShakeView: View {
     var body: some View {
         NavigationStack(path:$path){
             VStack(spacing:20){
+                Spacer()
                 Image(imageName).modifier(Card(width: 275, height: 360, angleRotation: $angleRotation))
-                
+                Spacer()
+                Text(LocalizedStringKey(title)).font(.title).font(.system(size:16)).foregroundColor(.accentColor)
+                Spacer()
+                NavigationLink {
+                    TaskView(path: $path, job: randomJob, tasksForJob: tasksForJob).navigationBarBackButtonHidden(true)
+                } label: {
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 20).frame(width: 185,height: 65).foregroundColor(.accentColor)
+                        Text(LocalizedStringKey("Next")).foregroundColor(.white)
+                    }
+                }.opacity(hasOnceShaked ? 1 : 0).onDisappear(){
+                    if(hasOnceShaked){
+                        DataController().editJob(job: randomJob, isChosen: true, context: managedObjContext)
+                        DataController().editTask(task: tasksForJob, isTaken: true, context: managedObjContext)
+                    }
+                }
             }.onShake {
                 if(!hasOnceShaked){
                     withAnimation(.easeInOut(duration:0.1)){
@@ -36,7 +52,6 @@ struct ShakeView: View {
                             .repeatCount(10)) {
                                 angleRotation = 15
                             }}
-                    
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.1){
                         angleRotation = 0
                         hasOnceShaked = true
@@ -52,24 +67,8 @@ struct ShakeView: View {
                     }
                 }
             }
-            Text(LocalizedStringKey(title)).font(.title).font(.system(size:16))
         }.onAppear(){
             job = DataController().getJob(context: managedObjContext)
-        }.navigationTitle(Text(LocalizedStringKey("Shake"))).toolbar {
-            HStack{
-                Spacer()
-                NavigationLink {
-                    TaskView(path: $path, job: randomJob, tasksForJob: tasksForJob).navigationBarBackButtonHidden(true)
-                } label: {
-                    Text(LocalizedStringKey("Next"))
-                    Image(systemName: "chevron.right").fontWeight(.semibold)
-                }.opacity(hasOnceShaked ? 1 : 0).onDisappear(){
-                    if(hasOnceShaked){
-                        DataController().editJob(job: randomJob, isChosen: true, context: managedObjContext)
-                        DataController().editTask(task: tasksForJob, isTaken: true, context: managedObjContext)
-                    }
-                }
-            }
         }
     }
 }
