@@ -14,7 +14,7 @@ struct JobView: View {
     @State var jobActive : [JobE] = []
     var body: some View {
         NavigationStack(path:$path){
-            Text("History").font(.title)
+            Text(LocalizedStringKey("History")).font(.title)
             Divider()
             List{
                 ForEach($jobActive) { $job in

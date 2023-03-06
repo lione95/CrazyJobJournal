@@ -19,7 +19,6 @@ extension TaskE {
     @NSManaged public var desc: String?
     @NSManaged public var id: UUID?
     @NSManaged public var isDone: Bool
-    @NSManaged public var isTaken: Bool
     @NSManaged public var title: String?
     @NSManaged public var taskForNote: NoteE?
     @NSManaged public var toJob: JobE?

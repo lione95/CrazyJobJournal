@@ -16,8 +16,9 @@ struct TaskView: View {
     
     var body: some View {
         NavigationStack() {
-            VStack{
-                Text(LocalizedStringKey(job.title!)).bold().font(.system(size:24)).multilineTextAlignment(.leading)
+            
+            VStack(){
+                Text(LocalizedStringKey(job.title!)).bold().font(.system(size:24)).multilineTextAlignment(.leading).padding(.top,20)
                 Divider()
                 HStack{
                     Text(LocalizedStringKey(job.desc!)).font(.system(size:16)).multilineTextAlignment(.leading)
@@ -27,12 +28,15 @@ struct TaskView: View {
             VStack{
                 Text("Task").bold().font(.system(size:24))
                 HStack{
-                    Text(LocalizedStringKey(tasksForJob.title!)).padding().overlay(RoundedRectangle(cornerRadius: 20)
-                    .stroke(Color("AccentColor"),lineWidth: 2)).font(.system(size:16)).multilineTextAlignment(.leading)
+                    Text(LocalizedStringKey(tasksForJob.title!)).padding(10)
+                    .background(Color("ColorNote"))
+                    .cornerRadius(20)
+                    .font(.system(size:16)).multilineTextAlignment(.leading)
                 }
-            }.padding()
+            }
+            Spacer()
             HStack{
-                VStack{
+                VStack(spacing:30){
                     NavigationLink {
                         NoteView(path: $path, tasksForJob: $tasksForJob, job: $job)
                     } label: {
@@ -50,8 +54,12 @@ struct TaskView: View {
                         }
                     }
                 }
-                Image("base").resizable()
+                //Image(job.imageName!).resizable()
             }.padding()
+        Spacer()
+        }.onAppear(){
+            UserDefaults.standard.set(job.id!.uuidString, forKey: "jobID")
+            UserDefaults.standard.set(tasksForJob.id!.uuidString, forKey: "taskID")
         }
     }
 }

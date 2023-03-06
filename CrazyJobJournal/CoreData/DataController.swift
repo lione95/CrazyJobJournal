@@ -59,7 +59,6 @@ class DataController: ObservableObject {
         task.title = title
         task.desc = desc
         task.isDone = false
-        task.isTaken = false
         task.toJob = job
         save(context: context)
     }
@@ -71,11 +70,6 @@ class DataController: ObservableObject {
     
     func editTask(task: TaskE, title: String, context: NSManagedObjectContext) {
         task.title = title
-        save(context: context)
-    }
-    
-    func editTask(task: TaskE, isTaken: Bool, context: NSManagedObjectContext) {
-        task.isTaken = isTaken
         save(context: context)
     }
     

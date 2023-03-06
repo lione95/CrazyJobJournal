@@ -18,8 +18,6 @@ struct HistoryView: View {
         NavigationStack(path: $path){
             Text(LocalizedStringKey(job.title!)).font(.title)
             Divider()
-            Text("Chores").font(.title3)
-            Divider()
             List{
                 ForEach($listOfTask){ $task in
                     NavigationLink {

@@ -11,7 +11,7 @@ struct ShakeView: View {
     
     @Environment(\.managedObjectContext) var managedObjContext
     @State var job : [JobE] = Array()
-    @State var title: String = "JobD"
+    @State var title: String = "Shake"
     @State var imageName: String = "base"
     @State var desc: String = "DefDesc"
     @State var tasks: Array<TaskE> = Array()
@@ -39,7 +39,6 @@ struct ShakeView: View {
                 }.opacity(hasOnceShaked ? 1 : 0).onDisappear(){
                     if(hasOnceShaked){
                         DataController().editJob(job: randomJob, isChosen: true, context: managedObjContext)
-                        DataController().editTask(task: tasksForJob, isTaken: true, context: managedObjContext)
                     }
                 }
             }.onShake {
@@ -56,11 +55,15 @@ struct ShakeView: View {
                         angleRotation = 0
                         hasOnceShaked = true
                         randomJob = job.randomElement()!
+                        randomJob = job.randomElement()!
+                        //while(randomJob.toTask.array(of: TaskE.self).contains{$0.isDone}) {}
+                        
                         title = randomJob.title!
                         desc = randomJob.desc!
                         imageName = randomJob.imageName!
-                        tasks = randomJob.toTask.array(of: TaskE.self)
+                        tasks = randomJob.toTask.array(of: TaskE.self).filter({!$0.isDone})
                         tasksForJob = tasks.randomElement()!
+
                     }
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 43200){
                         hasOnceShaked = false

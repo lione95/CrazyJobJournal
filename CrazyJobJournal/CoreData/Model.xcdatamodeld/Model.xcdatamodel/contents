@@ -20,7 +20,6 @@
         <attribute name="desc" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="isTaken" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="title" optional="YES" attributeType="String"/>
         <relationship name="taskForNote" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NoteE" inverseName="noteForTask" inverseEntity="NoteE"/>
         <relationship name="toJob" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="JobE" inverseName="toTask" inverseEntity="JobE"/>

@@ -20,45 +20,46 @@ struct NoteView: View {
     var body: some View {
         NavigationStack(path: $path){
             VStack{
-                VStack(spacing: 15){
+                VStack{
                     HStack{
                         Spacer()
                         Text(LocalizedStringKey("SelfReflection")).font(.system(size:24)).foregroundColor(.accentColor)
                         Spacer()
                     }
-                    HStack{
-                        Text(LocalizedStringKey("Rifletti")).font(.system(size:16)).foregroundColor(.accentColor).multilineTextAlignment(.leading)
-                    }
                 }
-                VStack{
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 20).frame(width: 346, height: 500)
-                        TextEditor(text: self.$Desc).textSelection(.enabled).frame(width: 346, height: 500).scrollContentBackground(.hidden).background(Color("ColorNote")).cornerRadius(20)
-                    }
-                }
+                TextField("", text: self.$Desc,prompt: Text(LocalizedStringKey("Rifletti")), axis: .vertical).padding(.all,10)
+                    .lineLimit(12...18)
+                    .font(.system(size:20))
+                    .overlay(RoundedRectangle(cornerRadius: 20)
+                    .stroke(Color("AccentColor"),lineWidth: 2))
+                    .padding()
             }.onTapGesture {
                 self.hideKeyboard()
             }
-            Spacer()
-            NavigationLink(destination: MainView().navigationBarBackButtonHidden(true), isActive: $save) {
-                HStack{
-                    Button(action: {save.toggle()}) {
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 20).frame(width: 185, height: 65).foregroundColor(.accentColor)
-                            Text(LocalizedStringKey("Done")).foregroundColor(.white)
-                        }
-                    }
+            if(self.Desc.isEmpty){
+                ZStack{
+                    RoundedRectangle(cornerRadius: 20).frame(width: 185, height: 65).foregroundColor(.gray)
+                    Text(LocalizedStringKey("Done")).foregroundColor(.white)
+                }.padding()
+            } else {
+                NavigationLink(destination: MainView().navigationBarBackButtonHidden(true)) {
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 20).frame(width: 185, height: 65).foregroundColor(.accentColor)
+                        Text(LocalizedStringKey("Done")).foregroundColor(.white)
+                    }.padding()
                 }
-            }.onDisappear(){
-                if(save && !(self.Desc.isEmpty)){
-                    note = DataController().addNote(desc: Desc, task: tasksForJob, context: managedObjContext)
-                    DataController().addNoteToTask(note: note, task: tasksForJob, context: managedObjContext)
-                    DataController().editTask(task: tasksForJob, isTaken: false, context: managedObjContext)
-                    DataController().editTask(task: tasksForJob, isDone: true, context: managedObjContext)
-                    DataController().editJob(job: job, isFound: false, context: managedObjContext)
-                }
-
             }
+            Spacer()
+        }.onDisappear(){
+            if(!(self.Desc.isEmpty)){
+                note = DataController().addNote(desc: Desc, task: tasksForJob, context: managedObjContext)
+                DataController().addNoteToTask(note: note, task: tasksForJob, context: managedObjContext)
+                DataController().editTask(task: tasksForJob, isDone: true, context: managedObjContext)
+                DataController().editJob(job: job, isFound: false, context: managedObjContext)
+                UserDefaults.standard.set("", forKey: "jobID")
+                UserDefaults.standard.set("", forKey: "taskID")
+            }
+            
         }
     }
 }

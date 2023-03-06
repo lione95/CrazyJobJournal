@@ -9,10 +9,10 @@
 "Add" = "TASK FINSHED";
 "FirstButton" = "START!";
 "PastJ" = "HISTORY";
-"Shake" = "SHAKE IT!";
+"History" = "History";
+"Shake" = "Shake it!";
 "Next" = "NEXT";
 "DefDesc" = "Maybe you need to shake it first...";
-"JobD" = "Unemployed";
 "Job1" = "Civil Engineer";
 "Desc1" = "Maybe you have always liked building with Lego, there is a job that allows you to make this a reality, the civil engineer. He oversees the design, construction and maintenance of key structures and infrastructure, such as buildings, bridges, tunnels and more.";
 "Job2" = "Computer sciencist";

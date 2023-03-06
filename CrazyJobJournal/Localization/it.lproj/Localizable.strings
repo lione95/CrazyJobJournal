@@ -9,10 +9,10 @@
 "Add" = "TASK COMPLETATO";
 "FirstButton" = "INIZIAMO!";
 "PastJ" = "CRONOLOGIA";
-"Shake" = "SCUOTILO";
+"History" = "Cronologia";
+"Shake" = "Scuotilo";
 "Next" = "AVANTI";
 "DefDesc" = "Forse è necessario scuoterlo prima...";
-"JobD" = "Inoccupato";
 "Job1" = "Ingegnere civile";
 "Desc1" = "Magari ti è sempre piaciuto costruire con i Lego, c’è un lavoro che ti permette di rendere questa la realtà, l’ingegnere civile. Cura la progettazione, costruzione, manutenzione distrutture e infrastrutture fondamentali, quali edifici, ponti,gallerie e molto altro.";
 "Job2" = "Informatico";

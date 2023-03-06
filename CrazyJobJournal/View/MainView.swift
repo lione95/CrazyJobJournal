@@ -7,11 +7,9 @@
 
 import SwiftUI
 
-var jobActive: JobE = JobE()
-var taskActive: TaskE = TaskE()
-
 struct MainView: View {
-    
+    @AppStorage("jobID") private var jobIDstr: String = ""
+    @AppStorage("taskID") private var taskIDstr: String = ""
     @Environment(\.managedObjectContext) var managedObjContext
     @State var path : NavigationPath = NavigationPath()
     @FetchRequest(sortDescriptors: [SortDescriptor(\.id,order:.reverse)]) var jobs : FetchedResults<JobE>
@@ -19,7 +17,13 @@ struct MainView: View {
     var save: Bool {
         for i in 0..<jobs.count{
             if(jobs[i].isChosen){
-               return true
+                for j in 0..<tasks.count{
+                    if(tasks[j].toJob?.title == jobs[i].title){
+                        if(tasks[j].isDone){
+                            return true
+                        }
+                    }
+                }
             }
         }
         return false
@@ -28,22 +32,21 @@ struct MainView: View {
     
     var body: some View {
         NavigationStack(path: $path){
-            VStack(spacing:50){
+            VStack(spacing:100){
                 Spacer()
                 Image("base").frame(width: 275,height: 360)
-                Spacer()
-                VStack(spacing: 35){
+                VStack(spacing: 20){
                     NavigationLink {
-                        if(!(thereIsJobAndTask(job: jobs, task: tasks))){
+                        if(jobIDstr == ""){
                             ShakeView(path: $path)
                         }else{
-                            TaskView(path: $path, job: jobActive, tasksForJob: taskActive)
+                            TaskView(path: $path, job: jobs.first{$0.id == UUID(uuidString: jobIDstr)}!, tasksForJob: tasks.first{$0.id == UUID(uuidString: taskIDstr)}!).navigationBarBackButtonHidden(true)
                         }
                     } label: {
                         ZStack{
                             RoundedRectangle(cornerRadius: 20).frame(width: 185,height: 65).foregroundColor(.accentColor)
                             HStack{
-                                Text(thereIsJobAndTask(job: jobs, task: tasks) ? LocalizedStringKey("Resume") : LocalizedStringKey("FirstButton") ).font(.system(size: 18)).foregroundColor(.white)
+                                Text(jobIDstr != "" ? LocalizedStringKey("Resume") : LocalizedStringKey("FirstButton") ).font(.system(size: 18)).foregroundColor(.white)
                                 Image(systemName: "play.fill")
                                     .foregroundColor(.white)
                             }
@@ -76,25 +79,9 @@ struct MainView: View {
                     }
                 }
             }
+            
         }
-    }
-    
-    func thereIsJobAndTask(job: FetchedResults<JobE>, task: FetchedResults<TaskE>) -> Bool{
-        var isOk: Bool = false
-        for i in 0..<job.count{
-            if(job[i].isChosen){
-                for j in 0..<task.count{
-                    if(task[j].toJob?.title == job[i].title){
-                        if(task[j].isTaken){
-                            jobActive = job[i]
-                            taskActive = task[j]
-                            isOk = true
-                        }
-                    }
-                }
-            }
-        }
-        return isOk
+
     }
 }
 
