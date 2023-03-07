@@ -39,7 +39,11 @@ struct MainView: View {
                 VStack(spacing: 20){
                     NavigationLink {
                         if(jobIDstr == ""){
-                            ShakeView(path: $path)
+                            if(UserDefaults.standard.bool(forKey: "firstUse") == true){
+                                OnBoardingView(path: $path).navigationBarBackButtonHidden(true)
+                            }else{
+                                ShakeView(path: $path)
+                            }
                         }else{
                             TaskView(path: $path, job: jobs.first{$0.id == UUID(uuidString: jobIDstr)}!, tasksForJob: tasks.first{$0.id == UUID(uuidString: taskIDstr)}!).navigationBarBackButtonHidden(true)
                         }
@@ -80,9 +84,7 @@ struct MainView: View {
                     }
                 }
             }
-            
         }
-
     }
 }
 

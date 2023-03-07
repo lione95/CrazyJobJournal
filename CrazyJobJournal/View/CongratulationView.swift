@@ -8,13 +8,19 @@
 import SwiftUI
 
 struct CongratulationView: View {
+    
+    @Binding var path: NavigationPath
+    @Binding var tasksForJob: TaskE
+    @Binding var job: JobE
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+        NavigationStack(path: $path){
+            NavigationLink {
+                NoteView(path: $path, tasksForJob: $tasksForJob, job: $job).navigationBarBackButtonHidden(true)
+            } label: {
+                Image("Congratulation")
+            }
 
-struct CongratulationView_Previews: PreviewProvider {
-    static var previews: some View {
-        CongratulationView()
+        }
     }
 }

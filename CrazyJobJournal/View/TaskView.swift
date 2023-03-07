@@ -16,7 +16,6 @@ struct TaskView: View {
     
     var body: some View {
         NavigationStack() {
-            
             VStack(){
                 Text(LocalizedStringKey(job.title!)).bold().font(.system(size:24)).multilineTextAlignment(.leading).padding(.top,20)
                 Divider()
@@ -31,14 +30,14 @@ struct TaskView: View {
                     Text(LocalizedStringKey(tasksForJob.title!)).padding(10)
                         .background(Color.ColorNote)
                     .cornerRadius(20)
-                    .font(.system(size:16)).multilineTextAlignment(.leading)
+                    .font(.system(size:16)).multilineTextAlignment(.center)
                 }
             }
             Spacer()
             HStack{
                 VStack(spacing:30){
                     NavigationLink {
-                        NoteView(path: $path, tasksForJob: $tasksForJob, job: $job)
+                        CongratulationView(path: $path, tasksForJob: $tasksForJob, job: $job).navigationBarBackButtonHidden(true)
                     } label: {
                         ZStack{
                             RoundedRectangle(cornerRadius: 20).frame(width: 185,height: 65).foregroundColor(.accentColor)
@@ -54,7 +53,6 @@ struct TaskView: View {
                         }
                     }
                 }
-                //Image(job.imageName!).resizable()
             }.padding()
         Spacer()
         }.onAppear(){

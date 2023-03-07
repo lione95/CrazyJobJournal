@@ -15,11 +15,11 @@ struct CrazyJobJournalApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
-                //.preferredColorScheme(.light)
                 .environment(\.managedObjectContext, dataController.container.viewContext).onAppear(){
                     if(firstuse){
                         firstuse.toggle()
                         AddAllWork()
+                        UserDefaults.standard.set(true, forKey: "firstUse")
                     }
                 }
         }

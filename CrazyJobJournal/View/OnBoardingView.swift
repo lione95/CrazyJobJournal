@@ -8,13 +8,27 @@
 import SwiftUI
 
 struct OnBoardingView: View {
+    
+    @Binding var path: NavigationPath
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct OnBoardingView_Previews: PreviewProvider {
-    static var previews: some View {
-        OnBoardingView()
+        NavigationStack(){
+            TabView{
+                
+                Image("OnBoarding0")
+                
+                Image("OnBoarding1")
+                
+                Image("OnBoarding2")
+                
+                NavigationLink {
+                    ShakeView(path: $path)
+                } label: {
+                    Image("OnBoarding3")
+                }.onAppear(){
+                    UserDefaults.standard.set(false, forKey: "firstUse")
+                }
+            }.tabViewStyle(.page(indexDisplayMode: .always)).indexViewStyle(.page(backgroundDisplayMode: .always))
+        }
     }
 }
