@@ -28,6 +28,8 @@
 		8133DDE829B0EA01003FA640 /* TaskE+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8133DDE229B0EA01003FA640 /* TaskE+CoreDataProperties.swift */; };
 		8133DDE929B0EA01003FA640 /* JobE+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8133DDE329B0EA01003FA640 /* JobE+CoreDataClass.swift */; };
 		8133DDEA29B0EA01003FA640 /* JobE+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8133DDE429B0EA01003FA640 /* JobE+CoreDataProperties.swift */; };
+		8133DDEC29B7497F003FA640 /* CongratulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8133DDEB29B7497F003FA640 /* CongratulationView.swift */; };
+		8133DDEE29B749A6003FA640 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8133DDED29B749A6003FA640 /* OnBoardingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		8133DDE229B0EA01003FA640 /* TaskE+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TaskE+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8133DDE329B0EA01003FA640 /* JobE+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JobE+CoreDataClass.swift"; sourceTree = "<group>"; };
 		8133DDE429B0EA01003FA640 /* JobE+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JobE+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8133DDEB29B7497F003FA640 /* CongratulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratulationView.swift; sourceTree = "<group>"; };
+		8133DDED29B749A6003FA640 /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +159,8 @@
 				8133DDCF29AE3C26003FA640 /* TaskView.swift */,
 				8133DDD129AE3C54003FA640 /* HistoryView.swift */,
 				8133DDD329AE3C7E003FA640 /* NoteView.swift */,
+				8133DDEB29B7497F003FA640 /* CongratulationView.swift */,
+				8133DDED29B749A6003FA640 /* OnBoardingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -239,10 +245,12 @@
 				8133DDCC29AE3BD8003FA640 /* JournalView.swift in Sources */,
 				8133DDA429AE39AC003FA640 /* MainView.swift in Sources */,
 				8133DDD029AE3C26003FA640 /* TaskView.swift in Sources */,
+				8133DDEC29B7497F003FA640 /* CongratulationView.swift in Sources */,
 				8133DDD429AE3C7E003FA640 /* NoteView.swift in Sources */,
 				8133DDE729B0EA01003FA640 /* TaskE+CoreDataClass.swift in Sources */,
 				8133DDC429AE3AF2003FA640 /* DataController.swift in Sources */,
 				8133DDA229AE39AC003FA640 /* CrazyJobJournalApp.swift in Sources */,
+				8133DDEE29B749A6003FA640 /* OnBoardingView.swift in Sources */,
 				8133DDB629AE3AB9003FA640 /* Model.xcdatamodeld in Sources */,
 				8133DDEA29B0EA01003FA640 /* JobE+CoreDataProperties.swift in Sources */,
 				8133DDE829B0EA01003FA640 /* TaskE+CoreDataProperties.swift in Sources */,

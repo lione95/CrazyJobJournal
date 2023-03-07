@@ -14,7 +14,10 @@ struct JournalView: View {
     
     var body: some View {
         NavigationStack(path: $path){
-            Text(task.taskForNote!.desc!).foregroundColor(.accentColor)
+            Text(LocalizedStringKey(task.taskForNote!.desc!)).padding(10)
+                .background(Color.ColorNote)
+            .cornerRadius(20)
+            .font(.system(size:16)).multilineTextAlignment(.leading)
         }
     }
 }

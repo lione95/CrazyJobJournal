@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
+    
     @AppStorage("jobID") private var jobIDstr: String = ""
     @AppStorage("taskID") private var taskIDstr: String = ""
     @Environment(\.managedObjectContext) var managedObjContext
@@ -56,25 +57,25 @@ struct MainView: View {
                         NavigationLink(destination: JobView(path: $path)) {
                             HStack{
                                 ZStack{
-                                    RoundedRectangle(cornerRadius: 20).frame(width: 185,height: 65).foregroundColor(Color.white)
+                                    RoundedRectangle(cornerRadius: 20).frame(width: 185,height: 65).foregroundColor(.white)
                                     HStack{
-                                        Text(LocalizedStringKey("PastJ")).font(.system(size: 18)).foregroundColor( .accentColor)
+                                        Text(LocalizedStringKey("PastJ")).font(.system(size: 18)).foregroundColor(.accentColor)
                                         Image(systemName: "bookmark.fill").foregroundColor( .accentColor)
                                     }
                                 }.overlay(RoundedRectangle(cornerRadius: 20)
-                                    .stroke(Color("AccentColor"),lineWidth: 1.0))
+                                    .stroke(Color.accentColor, lineWidth: 1.0))
                             }
                         }.padding(.bottom)
                     }else{
                         HStack{
                             ZStack{
-                                RoundedRectangle(cornerRadius: 20).frame(width: 185,height: 65).foregroundColor( Color.gray).opacity(0.3)
+                                RoundedRectangle(cornerRadius: 20).frame(width: 185,height: 65).foregroundColor(Color.gray).opacity(0.3)
                                 HStack{
                                     Text(LocalizedStringKey("PastJ")).font(.system(size: 18)).foregroundColor(.white)
                                     Image(systemName: "bookmark.fill").foregroundColor(.white)
                                 }
                             }.overlay(RoundedRectangle(cornerRadius: 20)
-                                .stroke(Color("ColorStroke"),lineWidth: 1.0))
+                                .stroke(Color.ColorStroke, lineWidth: 1.0))
                         }.padding(.bottom)
                     }
                 }

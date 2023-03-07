@@ -31,7 +31,7 @@ struct NoteView: View {
                     .lineLimit(12...18)
                     .font(.system(size:20))
                     .overlay(RoundedRectangle(cornerRadius: 20)
-                    .stroke(Color("AccentColor"),lineWidth: 2))
+                        .stroke(Color.accentColor,lineWidth: 2))
                     .padding()
             }.onTapGesture {
                 self.hideKeyboard()

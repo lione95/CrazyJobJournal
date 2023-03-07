@@ -29,7 +29,7 @@ struct TaskView: View {
                 Text("Task").bold().font(.system(size:24))
                 HStack{
                     Text(LocalizedStringKey(tasksForJob.title!)).padding(10)
-                    .background(Color("ColorNote"))
+                        .background(Color.ColorNote)
                     .cornerRadius(20)
                     .font(.system(size:16)).multilineTextAlignment(.leading)
                 }
@@ -58,8 +58,10 @@ struct TaskView: View {
             }.padding()
         Spacer()
         }.onAppear(){
-            UserDefaults.standard.set(job.id!.uuidString, forKey: "jobID")
-            UserDefaults.standard.set(tasksForJob.id!.uuidString, forKey: "taskID")
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0){
+                UserDefaults.standard.set(job.id!.uuidString, forKey: "jobID")
+                UserDefaults.standard.set(tasksForJob.id!.uuidString, forKey: "taskID")
+            }
         }
     }
 }

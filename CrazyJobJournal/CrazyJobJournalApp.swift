@@ -15,7 +15,7 @@ struct CrazyJobJournalApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
-                .preferredColorScheme(.light)
+                //.preferredColorScheme(.light)
                 .environment(\.managedObjectContext, dataController.container.viewContext).onAppear(){
                     if(firstuse){
                         firstuse.toggle()

@@ -19,6 +19,7 @@ struct ShakeView: View {
     @State var angleRotation: Double = 0.0
     @State var hasOnceShaked : Bool = false
     @State var randomJob : JobE = JobE()
+    let pre = Locale.preferredLanguages[0] // Da usare in OnB e congr per cambiare immagini ita eng
     @Binding var path : NavigationPath
     
     var body: some View {
@@ -54,7 +55,6 @@ struct ShakeView: View {
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.1){
                         angleRotation = 0
                         hasOnceShaked = true
-                        randomJob = job.randomElement()!
                         randomJob = job.randomElement()!
                         //while(randomJob.toTask.array(of: TaskE.self).contains{$0.isDone}) {}
                         

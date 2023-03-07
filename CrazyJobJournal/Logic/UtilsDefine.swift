@@ -59,3 +59,8 @@ extension Optional where Wrapped == NSSet {
         return [T]()
     }
 }
+
+extension Color {
+    static let ColorNote = Color("ColorNote")
+    static let ColorStroke = Color("ColorStroke")
+}
