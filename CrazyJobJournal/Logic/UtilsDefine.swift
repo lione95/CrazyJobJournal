@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct Card: ViewModifier {
     init(width:CGFloat,height:CGFloat,angleRotation: Binding<Double>) {
         self.width = width
@@ -63,4 +64,47 @@ extension Optional where Wrapped == NSSet {
 extension Color {
     static let ColorNote = Color("ColorNote")
     static let ColorStroke = Color("ColorStroke")
+}
+
+extension Date {
+    var startOfNextDay: Date {
+        return Calendar.current.nextDate(after: self, matching: DateComponents(hour: 0, minute: 0), matchingPolicy: .nextTimePreservingSmallerComponents)!
+    }
+    var secondsUntilNextDay: TimeInterval {
+        return startOfNextDay.timeIntervalSince(self)
+    }
+}
+
+extension String {
+
+    func toDate(withFormat format: String = "y M d HH:mm:ss")-> Date?{
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        let date = dateFormatter.date(from: self)
+
+        return date
+
+    }
+}
+
+extension Date {
+
+    func toString(withFormat format: String = "y M d HH:mm:ss") -> String {
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        let str = dateFormatter.string(from: self)
+
+        return str
+    }
+}
+
+extension TimeInterval {
+  func asString() -> String {
+    let formatter = DateComponentsFormatter()
+    formatter.allowedUnits = [.hour, .minute, .second]
+    formatter.unitsStyle = .abbreviated
+    return formatter.string(from: self) ?? ""
+  }
 }

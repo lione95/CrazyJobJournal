@@ -22,11 +22,11 @@ struct OnBoardingView: View {
                 Image("OnBoarding2")
                 
                 NavigationLink {
-                    ShakeView(path: $path)
+                    ShakeView(path: $path,firstTime: Binding.constant(true))
                 } label: {
                     Image("OnBoarding3")
                 }.onAppear(){
-                    UserDefaults.standard.set(false, forKey: "firstUse")
+                    UserDefaults.standard.set(true,forKey: "otherUse")
                 }
             }.tabViewStyle(.page(indexDisplayMode: .always)).indexViewStyle(.page(backgroundDisplayMode: .always))
         }

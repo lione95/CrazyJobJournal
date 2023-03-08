@@ -10,16 +10,15 @@ import SwiftUI
 struct CrazyJobJournalApp: App {
     
     @StateObject private var dataController = DataController()
-    @AppStorage("firstUse") private var firstuse: Bool = true
     
     var body: some Scene {
         WindowGroup {
             MainView()
                 .environment(\.managedObjectContext, dataController.container.viewContext).onAppear(){
-                    if(firstuse){
-                        firstuse.toggle()
+                    if(!UserDefaults.standard.bool(forKey: "otherUse")){
                         AddAllWork()
-                        UserDefaults.standard.set(true, forKey: "firstUse")
+                        UserDefaults.standard.set(Date.distantPast.toString(), forKey: "dayJob")
+                        UserDefaults.standard.set(false, forKey: "hasShaked")
                     }
                 }
         }

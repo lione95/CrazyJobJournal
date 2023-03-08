@@ -55,7 +55,6 @@ struct NoteView: View {
                 note = DataController().addNote(desc: Desc, task: tasksForJob, context: managedObjContext)
                 DataController().addNoteToTask(note: note, task: tasksForJob, context: managedObjContext)
                 DataController().editTask(task: tasksForJob, isDone: true, context: managedObjContext)
-                DataController().editJob(job: job, isFound: false, context: managedObjContext)
                 UserDefaults.standard.set("", forKey: "jobID")
                 UserDefaults.standard.set("", forKey: "taskID")
             }

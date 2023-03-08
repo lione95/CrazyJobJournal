@@ -1,6 +1,7 @@
 /*   Localizable.strings  CrazyJobJournal   Created by Nanashi Kai Ni on 28/02/23.   */
 
 "Rifletti" = "What did you think about this task and how did it make you feel?";
+"Wait" = "You have to wait:";
 "Home" = "HOME";
 "Resume" = "RESUME";
 "TextForReflect" = "Take your time and self reflect...";

@@ -1,6 +1,7 @@
 /*Localizable.strings CrazyJobJournalCreated by Nanashi Kai Ni on 28/02/23.*/
 
 "Rifletti" = "Cos’hai pensato di questa task e di questo lavoro?";
+"Wait" = "Devi attendere:";
 "Home" = "MENU INIZIALE";
 "Resume" = "RIPRENDI";
 "TextForReflect" = "Prenditi del tempo per riflettere...";
@@ -20,10 +21,10 @@
 "Job3" = "Linguista";
 "Desc3" = "Hai sempre avuto una passione per le lingue e leculture straniere, allora sappi che il linguista rendere ciò un lavoro. Egli è un esperto del linguaggio, in grado di analizzareed approfondire l’origine, l’evoluzione e la struttura delle lingue, si occupa sia di lingue antiche che moderne. Sonointeressati non sono al processo linguistico, ma anche a quellisociali.";
 "Job4" = "Graphic designer";
-"Desc4" = "Fin da piccolo hai avuto una passione per il disegno, allora ti potrà interessare sapere che il graphic designertrasforma questa passione in un lavoro. Si occupa di realizzare disegni, bozzetti, lavori di animazione ed elaborati multimediali per l’ambito artistico, pubblicitario e comunicativo. Utilizzatecniche e strumenti differente, a seconda del proprio progetto.";
+"Desc4" = "Fin da piccolo hai avuto una passione per il disegno, allora ti potrà interessare sapere che il graphic designer trasforma questa passione in un lavoro. Si occupa di realizzare disegni, bozzetti, lavori di animazione ed elaborati multimediali per l’ambito artistico, pubblicitario e comunicativo. Utilizzatecniche e strumenti differente, a seconda del proprio progetto.";
 "Job5" = "Addetto allo sviluppo commerciale";
 "Desc5" = "É una persona dinamica alla quale piace gestire il rapporto con gli altri e tenere in ordine tutto ciò che riguarda l’ambito amministrativo, si occupa di mansioni amministrative, come gestire gli ordini, preventiva ed elabora offertecommerciali, prepara la reportistica commerciale, della corrispondenza e della gestione dei rapporti con clienti e fornitori.";
-"Task1" = "Prendi un righello (o uno strumento simile) per controllare che le dimensioni del tuo banco siano le stesse diquelle degli altri banchi.";
+"Task1" = "Prendi un righello (o uno strumento simile) per controllare che le dimensioni del tuo banco siano le stesse di quelle degli altri banchi.";
  "TaskDes1" = "";
 "Task2" = "Prendi una bottiglia d’acqua e crea dei piccoli fori sul tappo per capire come l’acqua fluisce in base alla grandezza del foro che hai creato";
  "TaskDes2" = "";

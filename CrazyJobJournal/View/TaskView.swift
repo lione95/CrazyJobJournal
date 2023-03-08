@@ -59,6 +59,7 @@ struct TaskView: View {
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0){
                 UserDefaults.standard.set(job.id!.uuidString, forKey: "jobID")
                 UserDefaults.standard.set(tasksForJob.id!.uuidString, forKey: "taskID")
+                UserDefaults.standard.set(Date.now.toString(),forKey: "dayJob")
             }
         }
     }

@@ -15,19 +15,10 @@ struct MainView: View {
     @State var path : NavigationPath = NavigationPath()
     @FetchRequest(sortDescriptors: [SortDescriptor(\.id,order:.reverse)]) var jobs : FetchedResults<JobE>
     @FetchRequest(sortDescriptors: [SortDescriptor(\.id,order:.reverse)]) var tasks : FetchedResults<TaskE>
-    var save: Bool {
-        for i in 0..<jobs.count{
-            if(jobs[i].isChosen){
-                for j in 0..<tasks.count{
-                    if(tasks[j].toJob?.title == jobs[i].title){
-                        if(tasks[j].isDone){
-                            return true
-                        }
-                    }
-                }
-            }
-        }
-        return false
+    var isEmptyJournal : Bool {
+        return jobs.filter({$0.isChosen})
+            .contains{$0.toTask.array(of: TaskE.self)
+                .contains{$0.isDone}}
     }
     
     
@@ -39,13 +30,16 @@ struct MainView: View {
                 VStack(spacing: 20){
                     NavigationLink {
                         if(jobIDstr == ""){
-                            if(UserDefaults.standard.bool(forKey: "firstUse") == true){
-                                OnBoardingView(path: $path).navigationBarBackButtonHidden(true)
+                            if(!UserDefaults.standard.bool(forKey: "otherUse")){
+                                OnBoardingView(path: $path)
+                                    .navigationBarBackButtonHidden(true)
                             }else{
-                                ShakeView(path: $path)
+                                ShakeView(path: $path,firstTime: Binding.constant(false))
+                                    .navigationBarBackButtonHidden(UserDefaults.standard.bool(forKey: "hasShaked"))
                             }
                         }else{
-                            TaskView(path: $path, job: jobs.first{$0.id == UUID(uuidString: jobIDstr)}!, tasksForJob: tasks.first{$0.id == UUID(uuidString: taskIDstr)}!).navigationBarBackButtonHidden(true)
+                            TaskView(path: $path, job: jobs.first{$0.id == UUID(uuidString: jobIDstr)}!, tasksForJob: tasks.first{$0.id == UUID(uuidString: taskIDstr)}!)
+                                .navigationBarBackButtonHidden(true)
                         }
                     } label: {
                         ZStack{
@@ -57,7 +51,7 @@ struct MainView: View {
                             }
                         }
                     }
-                    if(save){
+                    if(isEmptyJournal){
                         NavigationLink(destination: JobView(path: $path)) {
                             HStack{
                                 ZStack{
