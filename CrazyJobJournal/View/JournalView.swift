@@ -14,10 +14,13 @@ struct JournalView: View {
     
     var body: some View {
         NavigationStack(path: $path){
-            Text(LocalizedStringKey(task.taskForNote!.desc!)).padding(10)
-                .background(Color.ColorNote)
+            Text(LocalizedStringKey(task.taskForNote!.desc!))
+            .frame(width: 240 ,height: 480)
+            .padding(10)
+            .background(Color.ColorNote)
             .cornerRadius(20)
-            .font(.system(size:16)).multilineTextAlignment(.leading)
+            .font(.system(size:16))
+            .fixedSize(horizontal: false, vertical: true)
         }
     }
 }

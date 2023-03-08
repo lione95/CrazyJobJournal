@@ -93,7 +93,7 @@
       "scale" : "3x"
     },
     {
-      "filename" : "OBL3.png",
+      "filename" : "light.png",
       "idiom" : "universal",
       "locale" : "it",
       "scale" : "1x"
@@ -105,7 +105,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "OBD3.png",
+      "filename" : "OnboardingEng03.png",
       "idiom" : "universal",
       "locale" : "it",
       "scale" : "1x"

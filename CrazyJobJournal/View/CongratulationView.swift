@@ -18,7 +18,7 @@ struct CongratulationView: View {
             NavigationLink {
                 NoteView(path: $path, tasksForJob: $tasksForJob, job: $job).navigationBarBackButtonHidden(true)
             } label: {
-                Image("Congratulation")
+                Image("Congratulation").ignoresSafeArea()
             }
 
         }

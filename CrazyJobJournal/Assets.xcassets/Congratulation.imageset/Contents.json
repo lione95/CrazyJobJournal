@@ -13,7 +13,7 @@
       "scale" : "3x"
     },
     {
-      "filename" : "04._CONGRATS.png",
+      "filename" : "eng.png",
       "idiom" : "universal",
       "locale" : "en",
       "scale" : "1x"
@@ -29,7 +29,7 @@
       "scale" : "3x"
     },
     {
-      "filename" : "CongratsIta.png",
+      "filename" : "it.png",
       "idiom" : "universal",
       "locale" : "it",
       "scale" : "1x"

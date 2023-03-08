@@ -32,7 +32,7 @@ struct JobView: View {
                 }.padding()
             }
         }.onAppear(){
-            jobActive = job.filter { $0.toTask.array(of: TaskE.self).contains(where: {$0.isDone})}
+            jobActive = job.filter { $0.toTask.array(of: TaskE.self).contains(where: {$0.isDone})}.sorted{$0.title!.lowercased() < $1.title!.lowercased()}
         }
     }
 }

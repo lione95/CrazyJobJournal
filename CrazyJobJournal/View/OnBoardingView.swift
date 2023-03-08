@@ -22,7 +22,7 @@ struct OnBoardingView: View {
                 Image("OnBoarding2")
                 
                 NavigationLink {
-                    ShakeView(path: $path,firstTime: Binding.constant(true))
+                    ShakeView(path: $path,firstTime: Binding.constant(true)).navigationBarBackButtonHidden(true)
                 } label: {
                     Image("OnBoarding3")
                 }.onAppear(){

@@ -31,7 +31,7 @@ struct HistoryView: View {
                 }
             }
         }.onAppear(){
-            listOfTask = job.toTask.array(of: TaskE.self).filter({$0.isDone})
+            listOfTask = job.toTask.array(of: TaskE.self).filter({$0.isDone}).sorted{$0.title!.lowercased() < $1.title!.lowercased()}
         }
     }
 }

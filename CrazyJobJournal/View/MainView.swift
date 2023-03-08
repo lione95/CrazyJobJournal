@@ -58,7 +58,7 @@ struct MainView: View {
                                     RoundedRectangle(cornerRadius: 20).frame(width: 185,height: 65).foregroundColor(.white)
                                     HStack{
                                         Text(LocalizedStringKey("PastJ")).font(.system(size: 18)).foregroundColor(.accentColor)
-                                        Image(systemName: "bookmark.fill").foregroundColor( .accentColor)
+                                        Image(systemName: "book.fill").foregroundColor( .accentColor)
                                     }
                                 }.overlay(RoundedRectangle(cornerRadius: 20)
                                     .stroke(Color.accentColor, lineWidth: 1.0))
@@ -70,7 +70,7 @@ struct MainView: View {
                                 RoundedRectangle(cornerRadius: 20).frame(width: 185,height: 65).foregroundColor(Color.gray).opacity(0.3)
                                 HStack{
                                     Text(LocalizedStringKey("PastJ")).font(.system(size: 18)).foregroundColor(.white)
-                                    Image(systemName: "bookmark.fill").foregroundColor(.white)
+                                    Image(systemName: "book").foregroundColor(.white)
                                 }
                             }.overlay(RoundedRectangle(cornerRadius: 20)
                                 .stroke(Color.ColorStroke, lineWidth: 1.0))

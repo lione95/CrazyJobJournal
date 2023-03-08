@@ -10,7 +10,6 @@ import SwiftUI
 struct ShakeView: View {
     
     @Environment(\.managedObjectContext) var managedObjContext
-    @State var hasShaked : Bool = UserDefaults.standard.bool(forKey: "hasShaked")
     @State var afterTimer: Bool = false
     @State var dayJob : String = UserDefaults.standard.string(forKey: "dayJob") ?? Date.distantPast.toString()
     @State var job : [JobE] = Array()
@@ -20,12 +19,13 @@ struct ShakeView: View {
     @State var tasksForJob: TaskE = TaskE()
     @State var angleRotation: Double = 0.0
     @State var randomJob : JobE = JobE()
-    @State var timer = Timer.publish(every: 1, tolerance: 0.5, on: .current, in: .common).autoconnect()
+    @State var timerOff = Timer.publish(every: 1, tolerance: 0.5, on: .current, in: .common).autoconnect()
+    @State var timerShake = Timer.publish(every: 60, tolerance: 0.1, on: .current, in: .common).autoconnect()
     @Binding var path : NavigationPath
     @Binding var firstTime: Bool
     @State var waitingTime : String = ""
     let pre = Locale.preferredLanguages[0] // Da usare in OnB e congr per cambiare immagini ita eng
-    let timeOff : TimeInterval = 30 //3*60*60 // 3 hours delay
+    let timeOffset : TimeInterval = 60 //3*60*60 // 3 hours delay
 
     var body: some View {
         NavigationStack(path:$path){
@@ -34,9 +34,10 @@ struct ShakeView: View {
                 Image(imageName).modifier(Card(width: 275, height: 360, angleRotation: $angleRotation))
                 Spacer()
                 Text(LocalizedStringKey(title)).font(.title).font(.system(size:16)).foregroundColor(.accentColor)
+                    .opacity(dayJob.toDate()!.addingTimeInterval(timeOffset) < Date.now ? 1 : 0)
                 Spacer()
-                if(hasShaked){
-                    if(dayJob.toDate()!.addingTimeInterval(timeOff) < Date.now){
+                if(UserDefaults.standard.bool(forKey: "hasShaked")){
+                    if(dayJob.toDate()!.addingTimeInterval(timeOffset) < Date.now){
                         NavigationLink {
                             TaskView(path: $path, job: randomJob, tasksForJob: tasksForJob).navigationBarBackButtonHidden(true)
                         } label: {
@@ -46,8 +47,7 @@ struct ShakeView: View {
                             }
                         }
                         .onDisappear(){
-                            afterTimer = false
-                            if(hasShaked && UserDefaults.standard.string(forKey: "jobID") != "" ){
+                            if(UserDefaults.standard.bool(forKey: "hasShaked") && UserDefaults.standard.string(forKey: "jobID") != "" ){
                                 DataController().editJob(job: randomJob, isChosen: true, context: managedObjContext)
                             }
                         }
@@ -57,10 +57,12 @@ struct ShakeView: View {
                             Text(LocalizedStringKey("Wait"))
                             Text("\(waitingTime)")
                         }
+                        Spacer()
                     }
                 }
             }.onShake {
-                if(!hasShaked){
+                if(!UserDefaults.standard.bool(forKey: "hasShaked")){
+                    afterTimer = true
                     withAnimation(.easeInOut(duration:0.1)){
                         angleRotation = -15
                     }
@@ -76,23 +78,33 @@ struct ShakeView: View {
                         desc = randomJob.desc!
                         imageName = randomJob.imageName!
                         tasksForJob = randomJob.toTask.array(of: TaskE.self).filter({!$0.isDone}).randomElement()!
-                        afterTimer = true
-                        hasShaked = true
                         UserDefaults.standard.set(true, forKey: "hasShaked")
+                        print("HA SHAKERATO E VERO")
                     }
                 }
             }
-        }.onReceive(timer, perform: { _ in
-            waitingTime = Date.now.distance(to: dayJob.toDate()!.addingTimeInterval(timeOff)).asString()
-            if(dayJob.toDate()!.addingTimeInterval(timeOff) < Date.now && !firstTime && !afterTimer){
-                hasShaked = false
+        }
+        .onReceive(timerOff, perform: { _ in
+            let waitingT : TimeInterval = Date.now.distance(to: dayJob.toDate()!.addingTimeInterval(timeOffset))
+            waitingTime = waitingT.asString()
+            if( waitingT < 0.5 && waitingT > -0.5){
                 UserDefaults.standard.set(false, forKey: "hasShaked")
+            }
+        })
+        .onReceive(timerShake, perform: { _ in
+            if(!firstTime && !afterTimer){
+                UserDefaults.standard.set(false, forKey: "hasShaked")
+                print("FINITO IL TIMER E FALSO")
             }
             
         })
         .onAppear(){
+            if(dayJob.toDate()!.addingTimeInterval(timeOffset) < Date.now && !firstTime && !afterTimer){
+                UserDefaults.standard.set(false, forKey: "hasShaked")
+            }
+            afterTimer = false
             dayJob = UserDefaults.standard.string(forKey: "dayJob") ?? Date.distantPast.toString()
-            waitingTime = Date.now.distance(to: dayJob.toDate()!.addingTimeInterval(timeOff)).asString()
+            waitingTime = Date.now.distance(to: dayJob.toDate()!.addingTimeInterval(timeOffset)).asString()
             job = DataController().getJob(context: managedObjContext)
         }
     }
