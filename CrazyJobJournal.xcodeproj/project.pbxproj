@@ -58,6 +58,7 @@
 		8133DDE429B0EA01003FA640 /* JobE+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JobE+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8133DDEB29B7497F003FA640 /* CongratulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratulationView.swift; sourceTree = "<group>"; };
 		8133DDED29B749A6003FA640 /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
+		EA73B6A529B9EBEF00BEFC9A /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +209,7 @@
 				en,
 				Base,
 				it,
+				fr,
 			);
 			mainGroup = 8133DD9529AE39AC003FA640;
 			productRefGroup = 8133DD9F29AE39AC003FA640 /* Products */;
@@ -268,6 +270,7 @@
 			children = (
 				8133DDDC29AE3E27003FA640 /* en */,
 				8133DDDE29AE3E33003FA640 /* it */,
+				EA73B6A529B9EBEF00BEFC9A /* fr */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
